@@ -1,0 +1,36 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lab_09"
+version = "0.1.0"
+description = "Laboratory work #9 (Variant 3) - Concurrency, Multiprocessing, and Optimization"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "numpy>=1.20",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest>=8.0",
+]
+
+[project.scripts]
+lab_09 = "lab_09.main:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = [".", "src"]
+addopts = ["-ra"]
+
+[tool.coverage.run]
+branch = true
+source = ["lab_09"]
+omit = ["*/main.py", "main.py", "*/profiling.py"]
+
+[tool.coverage.report]
+show_missing = true
+skip_covered = false
+fail_under = 80
